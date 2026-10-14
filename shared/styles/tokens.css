@@ -1,0 +1,165 @@
+/* Build365 design tokens, following Linear's design language:
+   near-black neutrals with a faint cool bias, one indigo accent, hairline borders,
+   SF Pro at 500/600 weights, a 13px base and tight 4px-grid spacing. No gradients. */
+
+:root {
+  /* Apple's system fonts: -apple-system resolves to SF Pro (Text/Display by size) and ui-monospace to SF Mono
+     on Apple devices. SF isn't licensed for bundling, so other platforms fall back to Inter, its closest match. */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter Variable', Inter, system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, 'JetBrains Mono Variable', monospace;
+  --font-features: 'kern', 'liga', 'calt';
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  --fs-micro: 11px;
+  --fs-mini: 12px;
+  --fs-small: 13px;
+  --fs-regular: 14px;
+  --fs-large: 15px;
+  --fs-title3: 17px;
+  --fs-title2: 20px;
+  --fs-title1: 24px;
+
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-full: 9999px;
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --t-fast: 120ms;
+  --t-med: 200ms;
+
+  --sidebar-w: 244px;
+  --sidebar-w-collapsed: 56px;
+  --row-h: 28px;
+  --header-h: 44px;
+
+  /* Brand and workflow colours (same in both themes) */
+  --indigo: #e6f03c;          /* brand lime: primary buttons, avatars, checks */
+  --indigo-hover: #f1ff00;
+  --status-backlog: #8a8f98;
+  --status-todo: #8a8f98;
+  --status-progress: #f2c94c;
+  --status-done: #4cb782;
+  --status-canceled: #8a8f98;
+  --urgent: #fc7840;
+  --red: #eb5757;
+  --orange: #fc7840;
+  --yellow: #f2c94c;
+  --green: #4cb782;
+  --teal: #26b5ce;
+  --blue: #4ea7fc;
+  --purple: #b59aff;
+  --pink: #f7a8d6;
+
+  /* Build365 brand layer, on top of Linear's neutrals and indigo UI accent:
+     a deep navy and a signal yellow into a brand blue. Used for brand marks and the voice
+     assistant, not for everyday controls (those keep --accent). */
+  --brand-navy: #141b2b;
+  --brand-blue: #4e7cff;
+  --brand-yellow: #f5d547;
+  /* Voice orb palette: a closed loop from yellow through warm and violet into blue and back.
+     Tiles are shaded along it (see src/components/VoiceOrb.tsx). */
+  --holo-1: #f5d547;
+  --holo-2: #ffa94d;
+  --holo-3: #ff6f91;
+  --holo-4: #d66bff;
+  --holo-5: #8f7bff;
+  --holo-6: #4e7cff;
+  --holo-7: #3fd0e0;
+}
+
+/* Dark (default) */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #08090a;            /* app chrome and sidebar */
+  --bg-2: #0f1011;          /* main panel */
+  --surface: #141516;       /* cards and grouped rows */
+  --surface-solid: #141516;
+  --surface-2: #191a1b;     /* inputs, raised controls */
+  --surface-3: #232326;     /* pressed, selected */
+  --elevated: #1c1c1f;      /* menus, popovers, dialogs */
+  --hover: rgb(255 255 255 / 0.04);
+  --active: rgb(255 255 255 / 0.07);
+  --line: #1f2023;
+  --line-strong: #2a2b2f;
+  --line-tint: rgb(255 255 255 / 0.05);
+  --text: #f7f8f8;
+  --text-2: #d0d6e0;
+  --text-3: #8a8f98;
+  --text-4: #62666d;
+  --accent: #e6f03c;        /* accent as text/icon on dark */
+  --accent-strong: var(--indigo);
+  --accent-ink: #14160a;
+  --accent-bg: rgb(233 242 63 / 0.14);
+  --accent-line: rgb(233 242 63 / 0.45);
+  --good: #4cb782;
+  --good-bg: rgb(76 183 130 / 0.14);
+  --warn: #f2c94c;
+  --warn-bg: rgb(242 201 76 / 0.13);
+  --bad: #eb5757;
+  --bad-bg: rgb(235 87 87 / 0.13);
+  --info: #4ea7fc;
+  --series: #e6f03c;
+  --series-fill: rgb(233 242 63 / 0.12);
+  --shadow-sm: 0 1px 1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.35), 0 0 0 1px rgb(255 255 255 / 0.04);
+  --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.06);
+  --focus-ring: 0 0 0 2px rgb(233 242 63 / 0.5);
+  --sticky-yellow: #3a3317;
+  --sticky-violet: #25234a;
+  --sticky-mint: #15352b;
+  --sticky-rose: #3d1c2a;
+  --sticky-sky: #15293d;
+  --board-dot: rgb(255 255 255 / 0.06);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f5f8;
+  --bg-2: #ffffff;
+  --surface: #fbfbfc;
+  --surface-solid: #ffffff;
+  --surface-2: #ffffff;
+  --surface-3: #eceef2;
+  --elevated: #ffffff;
+  --hover: rgb(20 22 30 / 0.035);
+  --active: rgb(20 22 30 / 0.065);
+  --line: #e6e7eb;
+  --line-strong: #d8d9de;
+  --line-tint: rgb(20 22 30 / 0.05);
+  --text: #1b1c1f;
+  --text-2: #3c4149;
+  --text-3: #6b6f76;
+  --text-4: #9b9ea5;
+  --accent: #7a8200;
+  --accent-strong: var(--indigo);
+  --accent-ink: #14160a;
+  --accent-bg: rgb(145 153 0 / 0.12);
+  --accent-line: rgb(145 153 0 / 0.45);
+  --good: #2f9e6b;
+  --good-bg: rgb(47 158 107 / 0.1);
+  --warn: #b98900;
+  --warn-bg: rgb(242 201 76 / 0.2);
+  --bad: #d64545;
+  --bad-bg: rgb(214 69 69 / 0.09);
+  --info: #2f86d8;
+  --series: #919900;
+  --series-fill: rgb(145 153 0 / 0.12);
+  --shadow-sm: 0 1px 2px rgb(20 22 30 / 0.06);
+  --shadow-md: 0 4px 12px rgb(20 22 30 / 0.08), 0 0 0 1px rgb(20 22 30 / 0.06);
+  --shadow-lg: 0 16px 48px rgb(20 22 30 / 0.16), 0 0 0 1px rgb(20 22 30 / 0.08);
+  --focus-ring: 0 0 0 2px rgb(145 153 0 / 0.45);
+  --sticky-yellow: #fff1b8;
+  --sticky-violet: #e4e1fd;
+  --sticky-mint: #d3f5e6;
+  --sticky-rose: #fde0ea;
+  --sticky-sky: #daeefe;
+  --board-dot: rgb(20 22 30 / 0.1);
+}
