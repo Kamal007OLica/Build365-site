@@ -1,5 +1,5 @@
-import { ArrowRight, Asterisk, Check, GraduationCap, Headset, IndianRupee, Rocket, Server, ShieldCheck } from 'lucide-react';
-import { AnimatedMark } from '../../shared/components/OrbMark';
+import { ArrowRight, Check, GraduationCap, Headset, IndianRupee, Rocket, Server, ShieldCheck } from 'lucide-react';
+import { OrbMark } from '../../shared/components/OrbMark';
 import { GitHubMark } from '../../shared/components/brand';
 import { LINKS } from '../links';
 import Reveal from '../ui/Reveal';
@@ -92,7 +92,7 @@ export default function Pricing() {
           </Reveal>
 
           <Reveal className="ent" delay={80}>
-            <span className="ent-tile" aria-hidden="true"><Asterisk size={30} strokeWidth={2.6} /></span>
+            <span className="ent-tile" aria-hidden="true"><OrbMark size={56} plate /></span>
             <h3>Inside Enterprise</h3>
             <p className="ent-lede">
               For companies that want Build 365 run for them, with a human to call. We host it in India or on your servers, keep it patched and backed up,
@@ -122,11 +122,6 @@ export default function Pricing() {
               {LINKS.contact
                 ? <a className="btn-s primary lg" href={LINKS.contact} {...(LINKS.contact.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}>Talk to us <ArrowRight size={16} /></a>
                 : <span className="btn-s lg soon" role="note"><i className="soon-dot" aria-hidden="true" /> Enterprise opens with 1.0</span>}
-            </div>
-
-            <div className="ent-by">
-              <span className="ent-av" aria-hidden="true"><AnimatedMark size={44} speed={0.03} pulse={0.25} /></span>
-              <div><b>Kamal</b><span>Founder, Build 365</span></div>
             </div>
           </Reveal>
         </div>
