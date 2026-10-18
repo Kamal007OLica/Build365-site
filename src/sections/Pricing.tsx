@@ -12,7 +12,6 @@ import Reveal from '../ui/Reveal';
 export const PRICE = {
   seatYearly: '₹899',
   seatMonthly: '₹1,099',
-  minSeats: 10,
   volumeFrom: 50,
 } as const;
 
@@ -108,7 +107,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ol>
-            <p className="ent-cap">Starts at {PRICE.minSeats} seats. Volume pricing from {PRICE.volumeFrom}.</p>
+            <p className="ent-cap">No minimum seats. One founder or a whole floor. Volume pricing from {PRICE.volumeFrom}.</p>
 
             <ul className="ent-points">
               {ENT_POINTS.map((p) => <li key={p}>{p}</li>)}
@@ -139,7 +138,7 @@ export default function Pricing() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={120}><p className="tn-fine">Prices in Indian rupees. Enterprise pricing is per seat per month, with a {PRICE.minSeats}-seat minimum, and every price includes GST. The founders’ programme needs a StartupTN or DPIIT certificate and a registered office in Tamil Nadu.</p></Reveal>
+          <Reveal delay={120}><p className="tn-fine">Prices in Indian rupees. Enterprise pricing is per seat per month from a single seat, and every price includes GST. The founders’ programme needs a StartupTN or DPIIT certificate and a registered office in Tamil Nadu.</p></Reveal>
         </div>
       </div>
     </section>
