@@ -7,7 +7,7 @@ import Reveal from '../ui/Reveal';
 /**
  * The price sheet. One number runs through the whole section: ₹899 a seat a month is what Enterprise pays, and
  * the same number is struck out on the self-hosted card, because the code is identical and only who runs it changes.
- * Priced for Tamil Nadu first: INR, GST on the invoice, UPI, and a founders' programme for StartupTN and DPIIT startups.
+ * Priced for Tamil Nadu first: INR with GST included, UPI, and a founders' programme for StartupTN and DPIIT startups.
  */
 export const PRICE = {
   seatYearly: '₹899',
@@ -41,7 +41,7 @@ const ENT_POINTS = [
 const TN: { icon: typeof Rocket; title: string; body: string }[] = [
   { icon: Rocket, title: 'Startups in Tamil Nadu', body: 'StartupTN or DPIIT recognised and headquartered in the state? Enterprise is free for your first 12 months, then half price until you cross ₹1 crore ARR.' },
   { icon: GraduationCap, title: 'Students and incubators', body: 'Student builders, college incubators and accelerator cohorts get Enterprise at ₹0 for as long as the cohort runs. Bring the whole batch.' },
-  { icon: IndianRupee, title: 'Pay like a local', body: 'INR invoices with GST, paid by UPI, card or bank transfer. No dollar card, no forex markup, no surprise conversions.' },
+  { icon: IndianRupee, title: 'Pay like a local', body: 'GST-inclusive INR invoices, paid by UPI, card or bank transfer. No dollar card, no forex markup, no surprise conversions.' },
 ];
 
 /** A hand-drawn double strike, drawn in when the card scrolls into view. */
@@ -117,7 +117,7 @@ export default function Pricing() {
             <div className="ent-price">
               <div className="ent-amount">
                 <span className="ent-big"><b>{PRICE.seatYearly}</b><em>/seat/mo</em></span>
-                <span className="ent-terms">billed yearly · {PRICE.seatMonthly} billed monthly · GST extra</span>
+                <span className="ent-terms">billed yearly · {PRICE.seatMonthly} billed monthly · inclusive of GST</span>
               </div>
               {LINKS.contact
                 ? <a className="btn-s primary lg" href={LINKS.contact} {...(LINKS.contact.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}>Talk to us <ArrowRight size={16} /></a>
@@ -139,7 +139,7 @@ export default function Pricing() {
               </Reveal>
             ))}
           </div>
-          <Reveal delay={120}><p className="tn-fine">Prices in Indian rupees. Enterprise pricing is per seat per month, with a {PRICE.minSeats}-seat minimum and 18% GST on the invoice. The founders’ programme needs a StartupTN or DPIIT certificate and a registered office in Tamil Nadu.</p></Reveal>
+          <Reveal delay={120}><p className="tn-fine">Prices in Indian rupees. Enterprise pricing is per seat per month, with a {PRICE.minSeats}-seat minimum, and every price includes GST. The founders’ programme needs a StartupTN or DPIIT certificate and a registered office in Tamil Nadu.</p></Reveal>
         </div>
       </div>
     </section>
