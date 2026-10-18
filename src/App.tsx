@@ -12,12 +12,13 @@ import Clock from './sections/Clock';
 import Features from './sections/Features';
 import Principles from './sections/Principles';
 import GetStarted from './sections/GetStarted';
+import Pricing from './sections/Pricing';
 import Faq from './sections/Faq';
 import Cta from './sections/Cta';
 import Footer from './sections/Footer';
 
 export default function App() {
-  useSpotlight('.panel, .start-card, .card-in, .pr, .k-card, .nat-card');
+  useSpotlight('.panel, .start-card, .card-in, .pr, .k-card, .nat-card, .price-card, .ent-step, .tn-card');
   return (
     <>
       <Rails />
@@ -34,6 +35,7 @@ export default function App() {
         <Features />
         <Principles />
         <GetStarted />
+        <Pricing />
         <Faq />
         <Cta />
       </main>

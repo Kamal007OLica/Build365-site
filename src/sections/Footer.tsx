@@ -2,9 +2,9 @@ import { LINKS } from '../links';
 import Logo from '../ui/Logo';
 
 const COLS: { title: string; items: string[][] }[] = [
-  { title: 'Product', items: [['Platform', '#features'], ['Search', '#search'], ['Mac', '#native'], ['Rooms', '#rooms'], ['Around the clock', '#clock'], ['Get started', '#start'], ['FAQ', '#faq'], ['Live demo', LINKS.demo]] },
+  { title: 'Product', items: [['Platform', '#features'], ['Search', '#search'], ['Mac', '#native'], ['Rooms', '#rooms'], ['Around the clock', '#clock'], ['Get started', '#start'], ['Pricing', '#pricing'], ['FAQ', '#faq'], ['Live demo', LINKS.demo]] },
   { title: 'Project', items: [['GitHub', LINKS.github], ['Setup guide', LINKS.readme], ['Report an issue', LINKS.issues]].filter(([, href]) => href) },
-  { title: 'Principles', items: [['Self-hosted', '#principles'], ['Bring your own model', '#principles'], ['Native on macOS', '#native'], ['MCP-ready', '#start']] },
+  { title: 'Principles', items: [['Self-hosted', '#principles'], ['Bring your own model', '#principles'], ['Native on macOS', '#native'], ['MCP-ready', '#start'], ['Free to self-host', '#pricing']] },
 ];
 
 export default function Footer() {

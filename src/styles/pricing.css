@@ -1,0 +1,115 @@
+/* Pricing: the self-hosted card on the left with its struck-out seat price and a handwritten note, Enterprise on the
+   right as a story (host, secure, support) that ends in the real number, then the Tamil Nadu founders' band. */
+
+/* Caveat 500 is already loaded by site/src/main.tsx (@fontsource/caveat), the same hand the whiteboard uses. */
+:root { --font-hand: 'Caveat', 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive; }
+
+.pricing { padding-bottom: 24px; }
+.price-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: clamp(28px, 5vw, 72px); align-items: start; margin-top: 72px; }
+
+/* ---- the self-hosted card ------------------------------------------------------------ */
+.price-card, .ent-step, .tn-card { position: relative; isolation: isolate; outline: 1px solid transparent; outline-offset: 4px; transition-property: border-color, transform, background, outline-color, outline-offset; transition-duration: 300ms; transition-timing-function: var(--ease-out); }
+.price-card::before, .ent-step::before, .tn-card::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; opacity: 0; pointer-events: none; transition: opacity 320ms;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 30%), rgb(233 242 63 / 0.075), transparent 62%); }
+.price-card::after, .ent-step::after, .tn-card::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; opacity: 0; pointer-events: none; transition: opacity 320ms;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 30%), rgb(233 242 63 / 0.55), transparent 65%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask-composite: exclude; }
+.price-card:hover::before, .ent-step:hover::before, .tn-card:hover::before, .price-card:hover::after, .ent-step:hover::after, .tn-card:hover::after { opacity: 1; }
+.price-card:hover, .tn-card:hover { outline-color: var(--stroke-lit); outline-offset: 7px; }
+
+.price-card { display: grid; align-content: start; gap: 0; padding: 44px 44px 36px; border: 1px solid var(--site-line-strong); border-radius: 32px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.01)); box-shadow: 0 50px 120px -50px rgb(0 0 0 / 0.9), 0 1px 0 rgb(255 255 255 / 0.08) inset; }
+.price-chip { justify-self: start; padding: 6px 12px; border: 1px solid var(--site-line-strong); border-radius: 999px; background: rgb(255 255 255 / 0.05); color: var(--site-dim); font-size: 12.5px; font-weight: 500; letter-spacing: -0.005em; }
+.price-card h3 { margin-top: 36px; font-size: clamp(28px, 3vw, 38px); line-height: 1.08; letter-spacing: -0.04em; }
+.price-lede { max-width: 42ch; margin-top: 14px; color: var(--site-dim); font-size: 16.5px; line-height: 1.55; }
+
+.price-tag { display: grid; gap: 2px; margin-top: 36px; }
+.price-old { position: relative; display: inline-flex; align-items: baseline; justify-self: start; }
+.price-old s { text-decoration: none; display: inline-flex; align-items: baseline; gap: 4px; }
+.price-old b { font-size: clamp(56px, 6vw, 76px); line-height: 1; font-weight: 640; letter-spacing: -0.055em; color: var(--site-ink); }
+.price-old em { color: var(--site-dim); font-style: normal; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
+.price-strike { position: absolute; inset: 26% -3% 6%; width: 106%; height: 68%; overflow: visible; pointer-events: none; }
+.price-strike path { fill: none; stroke: var(--sun); stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 0 6px rgb(233 242 63 / 0.35)); }
+.reveal.in .price-strike path { animation: draw 700ms var(--ease-out) 500ms forwards; }
+.reveal.in .price-strike path:nth-child(2) { animation-delay: 680ms; animation-duration: 560ms; }
+.price-note { display: flex; align-items: flex-start; gap: 10px; margin-top: 6px; color: var(--sun); font: 500 clamp(25px, 2.5vw, 31px)/1.1 var(--font-hand); letter-spacing: 0.005em; transform: rotate(-1.6deg); transform-origin: left center; }
+.price-note > svg { flex: none; width: 30px; height: 26px; margin-top: 4px; overflow: visible; }
+.price-note > svg path { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.reveal.in .price-note > svg path { animation: draw 520ms var(--ease-out) 1060ms forwards; }
+.price-note > span { opacity: 0; transform: translateY(4px); transition: opacity 500ms var(--ease-out) 1100ms, transform 500ms var(--ease-out) 1100ms; }
+.reveal.in .price-note > span { opacity: 1; transform: none; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.price-inc { margin-top: 44px; color: var(--site-faint); font-size: 14.5px; }
+.price-list { display: grid; gap: 20px; margin-top: 18px; }
+.price-list li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 14px; align-items: start; }
+.price-list li > svg { margin-top: 3px; color: var(--site-dim); }
+.price-list b { display: block; font-size: 16.5px; font-weight: 600; letter-spacing: -0.02em; }
+.price-list span { display: block; margin-top: 3px; color: var(--site-dim); font-size: 14.5px; line-height: 1.5; }
+.price-cta { width: 100%; margin-top: 40px; }
+.price-fine { margin-top: 18px; color: var(--site-faint); font-size: 13.5px; line-height: 1.55; text-align: center; text-wrap: balance; }
+
+/* ---- inside Enterprise ------------------------------------------------------------------- */
+.ent { display: grid; align-content: start; padding-top: 40px; }
+.ent-tile { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--sun); color: #14160a; box-shadow: 0 10px 30px -10px rgb(233 242 63 / 0.6), 0 1px 0 rgb(255 255 255 / 0.5) inset; }
+.ent h3 { margin-top: 34px; font-size: clamp(28px, 3vw, 38px); line-height: 1.08; letter-spacing: -0.04em; }
+.ent-lede { max-width: 60ch; margin-top: 18px; color: var(--site-dim); font-size: 17px; line-height: 1.6; }
+.ent-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 32px; counter-reset: none; }
+.ent-step { display: grid; align-content: start; gap: 8px; padding: 20px 18px 18px; border: 1px solid var(--site-line); border-radius: 18px; background: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent); }
+.ent-step:hover { outline-color: var(--stroke-lit); outline-offset: 3px; }
+.ent-n { color: var(--sun); font: 500 12px/1 var(--font-mono); letter-spacing: 0.08em; }
+.ent-step b { display: flex; align-items: center; gap: 7px; font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.ent-step b svg { color: var(--site-dim); }
+.ent-step p { color: var(--site-dim); font-size: 14px; line-height: 1.5; }
+.ent-cap { margin-top: 14px; color: var(--site-faint); font-size: 13.5px; }
+.ent-points { display: grid; gap: 12px; margin-top: 30px; }
+.ent-points li { position: relative; padding-left: 22px; font-size: 16px; font-weight: 500; letter-spacing: -0.015em; }
+.ent-points li::before { content: ''; position: absolute; left: 2px; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--sun); box-shadow: 0 0 10px rgb(233 242 63 / 0.6); }
+
+.ent-price { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 28px; margin-top: 36px; padding: 24px 26px; border: 1px solid var(--site-line-strong); border-radius: 22px; background: rgb(0 0 0 / 0.28); box-shadow: 0 1px 0 rgb(255 255 255 / 0.06) inset; }
+.ent-amount { display: grid; gap: 6px; }
+.ent-big { display: inline-flex; align-items: baseline; gap: 4px; }
+.ent-big b { font-size: 42px; line-height: 1; font-weight: 640; letter-spacing: -0.045em; background: linear-gradient(180deg, var(--h-from) 25%, var(--h-to)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+.ent-big em { color: var(--site-dim); font-style: normal; font-size: 16px; font-weight: 500; }
+.ent-terms { color: var(--site-faint); font-size: 13px; }
+.ent-price .btn-s { flex: none; }
+
+.ent-by { display: flex; align-items: center; gap: 14px; margin-top: 34px; }
+.ent-av { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgb(255 255 255 / 0.05); box-shadow: 0 0 0 1px var(--site-line-strong) inset; filter: drop-shadow(0 0 14px rgb(233 242 63 / 0.25)); }
+.ent-by div { display: grid; line-height: 1.3; }
+.ent-by b { font-size: 16px; font-weight: 600; letter-spacing: -0.015em; }
+.ent-by span { color: var(--site-faint); font-size: 14px; }
+
+/* ---- built in Tamil Nadu --------------------------------------------------------------- */
+.tn { position: relative; margin-top: 96px; padding-top: 56px; }
+.tn::before { content: ''; position: absolute; inset: 0 0 auto; height: 1px; background: linear-gradient(90deg, transparent, var(--site-line-strong) 20%, var(--site-line-strong) 80%, transparent); }
+.tn-kicker { display: inline-flex; align-items: center; gap: 10px; font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; letter-spacing: -0.03em; }
+.tn-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--sun), var(--amber)); box-shadow: 0 0 16px rgb(255 169 77 / 0.5); }
+.tn-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+.tn-card { display: grid; align-content: start; gap: 10px; padding: 24px; border: 1px solid var(--site-line); border-radius: 24px; background: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent); }
+.tn-card > svg { color: var(--sun); }
+.tn-card h3 { font-size: 19px; letter-spacing: -0.025em; }
+.tn-card p { color: var(--site-dim); font-size: 15px; line-height: 1.55; }
+.tn-fine { max-width: 76ch; margin: 28px auto 0; color: var(--site-faint); font-size: 13px; line-height: 1.6; text-align: center; text-wrap: balance; }
+
+@media (max-width: 980px) {
+  .price-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; margin-top: 48px; }
+  .ent { padding-top: 0; }
+  .ent-steps, .tn-grid { grid-template-columns: minmax(0, 1fr); }
+  .ent-steps { gap: 10px; }
+  .ent-step { grid-template-columns: 32px minmax(0, 1fr); column-gap: 8px; }
+  .ent-step .ent-n { grid-row: 1 / span 2; padding-top: 4px; }
+}
+@media (max-width: 720px) {
+  .price-card { padding: 28px 22px 24px; border-radius: 26px; }
+  .price-card h3 { margin-top: 26px; }
+  .price-old b { font-size: 52px; }
+  .price-note { font-size: 24px; }
+  .ent-price { padding: 20px; }
+  .ent-price .btn-s { width: 100%; }
+  .tn { margin-top: 72px; padding-top: 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .price-strike path, .price-note > svg path { stroke-dashoffset: 0; animation: none; }
+  .price-note > span { opacity: 1; transform: none; }
+}

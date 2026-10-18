@@ -9,6 +9,7 @@ const ITEMS = [
   { href: '#native', label: 'Mac' },
   { href: '#rooms', label: 'Rooms' },
   { href: '#clock', label: 'Around the clock' },
+  { href: '#pricing', label: 'Pricing' },
   { href: '#faq', label: 'FAQ' },
 ];
 
